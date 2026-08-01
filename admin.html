@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <title>TraceCore — Admin</title>
+    <meta name="theme-color" content="#f6f7f9">
+</head>
+
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="side-brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 32 32" width="26" height="26" fill="none" aria-hidden="true">
+                    <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3" />
+                    <circle cx="16" cy="16" r="2" fill="currentColor" />
+                    <path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <circle cx="25" cy="7" r="2.4" fill="#38bdf8" />
+                </svg>
+            </span>
+            <span class="brand-text">Trace<span>Core</span></span>
+            <span class="admin-tag">ADMIN</span>
+        </div>
+
+        <nav class="side-nav">
+            <p class="nav-group">OVERVIEW</p>
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-page="users">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M23 21v-1a3 3 0 0 0-3-3"/></svg>
+                <span>Users</span>
+                <span class="badge">48</span>
+            </a>
+            <a href="#" class="nav-item" data-page="api">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 6-6 6 6 6"/><path d="M16 6l6 6-6 6"/></svg>
+                <span>API Usage</span>
+            </a>
+            <a href="#" class="nav-item" data-page="billing">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                <span>Billing</span>
+            </a>
+
+            <p class="nav-group">SYSTEM</p>
+            <a href="#" class="nav-item" data-page="logs">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 12h8M8 16h8M8 18h4"/></svg>
+                <span>Audit Logs</span>
+            </a>
+            <a href="#" class="nav-item" data-page="health">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                <span>System Health</span>
+            </a>
+            <a href="#" class="nav-item" data-page="keys">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 2v2h-2v2h-2V4h-2V2h2V0h2v2h2zM10 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM2 22l3-3"/></svg>
+                <span>API Keys</span>
+            </a>
+            <a href="#" class="nav-item" data-page="alerts">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                <span>Alerts</span>
+            </a>
+            <a href="#" class="nav-item" data-page="backup">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>Backup</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1.08 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="side-foot">
+            <div class="side-user">
+                <span class="avatar">AD</span>
+                <div>
+                    <strong>Admin</strong>
+                    <p>admin@tracecore.io</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main class="main">
+        <header class="topbar">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <span class="top-title">Admin Console</span>
+            <div class="top-actions">
+                <span class="top-stat"><span class="dot live-dot"></span>System Online</span>
+                <button class="icon-btn" onclick="window.location.reload()">Refresh</button>
+                <a href="panel.html" class="btn btn-ghost sm">Back to Panel</a>
+                <span class="avatar sm">AD</span>
+            </div>
+        </header>
+
+        <!-- ============ DASHBOARD ============ -->
+        <section class="page active" id="page-dashboard">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">ADMIN OVERVIEW</p>
+                    <h1>System Dashboard</h1>
+                    <p class="page-sub">Real-time metrics across all services and users.</p>
+                </div>
+            </div>
+
+            <div class="stat-grid four">
+                <div class="stat-card">
+                    <div class="stat-ic ic-a"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
+                    <div class="stat-meta"><span>Total users</span><strong id="statUsers">48</strong></div>
+                    <div class="stat-trend up">+3 this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-b"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <div class="stat-meta"><span>Requests today</span><strong id="statReq">12,847</strong></div>
+                    <div class="stat-trend up">+18%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-c"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></div>
+                    <div class="stat-meta"><span>MRR</span><strong id="statMRR">$2,480</strong></div>
+                    <div class="stat-trend up">+$290</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-d"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div>
+                    <div class="stat-meta"><span>Avg latency</span><strong id="statLat">1.4s</strong></div>
+                    <div class="stat-trend ok">Stable</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-head"><h2>Recent users</h2><a href="#" class="panel-link" data-goto="users">View all</a></div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>User</th><th>Email</th><th>Plan</th><th>Lookups</th><th>Joined</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td><div class="user-cell"><span class="avatar xs">AK</span><strong>Aiden K.</strong></div></td><td class="mono">aiden@tracecore.io</td><td><span class="tag tag-domain">Investigator</span></td><td>847</td><td>Mar 11</td><td><span class="status ok">Active</span></td></tr>
+                                <tr><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td class="mono">marcus@tracecore.io</td><td><span class="tag tag-ip">Operations</span></td><td>2,104</td><td>Feb 3</td><td><span class="status ok">Active</span></td></tr>
+                                <tr><td><div class="user-cell"><span class="avatar xs" style="background:#8b5cf6">SL</span><strong>Sasha L.</strong></div></td><td class="mono">sasha.l@corp.com</td><td><span class="tag tag-phone">Operations</span></td><td>1,582</td><td>Jan 17</td><td><span class="status ok">Active</span></td></tr>
+                                <tr><td><div class="user-cell"><span class="avatar xs" style="background:var(--dim)">JM</span><strong>James M.</strong></div></td><td class="mono">james@secure.io</td><td><span class="tag tag-user">Scout</span></td><td>42</td><td>Jul 28</td><td><span class="status idle">Idle</span></td></tr>
+                                <tr><td><div class="user-cell"><span class="avatar xs" style="background:#f43f5e">RK</span><strong>Rita K.</strong></div></td><td class="mono">rita@startup.dev</td><td><span class="tag tag-user">Scout</span></td><td>0</td><td>Jul 14</td><td><span class="status off">Suspended</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="side-col">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Requests (24h)</h2></div>
+                        <div class="chart-block">
+                            <div class="sparkline">
+                                <span style="height:42%"></span><span style="height:58%"></span><span style="height:72%"></span><span style="height:65%"></span><span style="height:80%"></span>
+                                <span style="height:88%"></span><span style="height:75%"></span><span style="height:92%"></span><span style="height:86%"></span><span style="height:78%"></span>
+                                <span style="height:95%"></span><span style="height:82%"></span><span style="height:70%"></span><span style="height:88%"></span><span style="height:94%"></span>
+                                <span style="height:84%"></span><span style="height:90%"></span><span style="height:76%"></span><span style="height:85%"></span><span style="height:91%"></span>
+                                <span style="height:88%"></span><span style="height:93%"></span><span style="height:79%"></span><span style="height:87%"></span>
+                            </div>
+                            <div class="chart-labels"><span>00:00</span><span>12:00</span><span>Now</span></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Plan distribution</h2></div>
+                        <div class="dist-list">
+                            <div class="dist-row"><span>Scout (Free)</span><i class="dist-bar"><b style="width:48%"></b></i><small>23</small></div>
+                            <div class="dist-row"><span>Investigator</span><i class="dist-bar"><b style="width:48%"></b></i><small>18</small></div>
+                            <div class="dist-row"><span>Operations</span><i class="dist-bar"><b style="width:16%"></b></i><small>7</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ USERS ============ -->
+        <section class="page" id="page-users">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">MANAGEMENT</p>
+                    <h1>Users</h1>
+                    <p class="page-sub">48 registered users across 3 plans.</p>
+                </div>
+                <div class="head-actions">
+                    <div class="search sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+                        <input type="text" placeholder="Search users...">
+                    </div>
+                    <button class="btn btn-primary">Add User</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="bulk-bar" id="bulkBar">
+                    <span id="bulkCount">0 selected</span>
+                    <button class="icon-btn bulk-act" data-bulk="suspend">Suspend</button>
+                    <button class="icon-btn bulk-act" data-bulk="delete" style="color:var(--red)">Delete</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th><input type="checkbox" id="selectAll" class="user-check"></th><th>User</th><th>Email</th><th>Plan</th><th>Lookups (mo)</th><th>API keys</th><th>Joined</th><th>Status</th><th></th></tr></thead>
+                        <tbody>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs">AK</span><strong>Aiden K.</strong></div></td><td class="mono">aiden@tracecore.io</td><td><span class="tag tag-domain">Investigator</span></td><td>847 / Unlimited</td><td>2</td><td>Mar 11, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td class="mono">marcus@tracecore.io</td><td><span class="tag tag-ip">Operations</span></td><td>2,104 / Unlimited</td><td>4</td><td>Feb 3, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:#8b5cf6">SL</span><strong>Sasha L.</strong></div></td><td class="mono">sasha.l@corp.com</td><td><span class="tag tag-ip">Operations</span></td><td>1,582 / Unlimited</td><td>1</td><td>Jan 17, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:var(--dim)">JM</span><strong>James M.</strong></div></td><td class="mono">james@secure.io</td><td><span class="tag tag-user">Scout</span></td><td>42 / 50</td><td>1</td><td>Jul 28, 2026</td><td><span class="status idle">Idle</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:#f43f5e">RK</span><strong>Rita K.</strong></div></td><td class="mono">rita@startup.dev</td><td><span class="tag tag-user">Scout</span></td><td>0 / 50</td><td>0</td><td>Jul 14, 2026</td><td><span class="status off">Suspended</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:var(--green)">TP</span><strong>Tomas P.</strong></div></td><td class="mono">tomas@agency.io</td><td><span class="tag tag-domain">Investigator</span></td><td>612 / Unlimited</td><td>1</td><td>Apr 22, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:#ec4899">NW</span><strong>Nina W.</strong></div></td><td class="mono">nina@startup.dev</td><td><span class="tag tag-user">Scout</span></td><td>28 / 50</td><td>1</td><td>Jun 5, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                            <tr><td><input type="checkbox" class="user-check"></td><td><div class="user-cell"><span class="avatar xs" style="background:#38bdf8">DH</span><strong>Dan H.</strong></div></td><td class="mono">dan.h@altmail.io</td><td><span class="tag tag-domain">Investigator</span></td><td>1,982 / Unlimited</td><td>3</td><td>Jan 8, 2026</td><td><span class="status ok">Active</span></td><td><button class="icon-btn">Manage</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-foot"><span>Showing 8 of 48 users</span><div class="pager"><button class="icon-btn active">1</button><button class="icon-btn">2</button><button class="icon-btn">3</button><button class="icon-btn">Next</button></div></div>
+            </div>
+        </section>
+
+        <!-- ============ API USAGE ============ -->
+        <section class="page" id="page-api">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">ANALYTICS</p>
+                    <h1>API Usage</h1>
+                    <p class="page-sub">32,605 lookups this month across 48 active keys.</p>
+                </div>
+                <div class="head-actions">
+                    <button class="btn btn-ghost">Export CSV</button>
+                </div>
+            </div>
+
+            <div class="stat-grid three">
+                <div class="stat-card"><div class="stat-ic ic-a"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="stat-meta"><span>Total requests</span><strong>32,605</strong></div><div class="stat-trend up">+12%</div></div>
+                <div class="stat-card"><div class="stat-ic ic-b"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/></svg></div><div class="stat-meta"><span>Active keys</span><strong>48</strong></div><div class="stat-trend ok">All active</div></div>
+                <div class="stat-card"><div class="stat-ic ic-c"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div><div class="stat-meta"><span>Avg latency</span><strong>1.42s</strong></div><div class="stat-trend ok">-0.1s</div></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head"><h2>Top users by request volume</h2></div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>User</th><th>API key prefix</th><th>Requests</th><th>Avg latency</th><th>Error rate</th><th>Last used</th></tr></thead>
+                        <tbody>
+                            <tr><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td class="mono">tc_live_4f8a...</td><td>8,412</td><td>1.2s</td><td><span class="conf">0.3%</span></td><td>2 min ago</td></tr>
+                            <tr><td><div class="user-cell"><span class="avatar xs">AK</span><strong>Aiden K.</strong></div></td><td class="mono">tc_live_9d4f...</td><td>6,128</td><td>1.5s</td><td><span class="conf">0.1%</span></td><td>14 min ago</td></tr>
+                            <tr><td><div class="user-cell"><span class="avatar xs" style="background:#8b5cf6">SL</span><strong>Sasha L.</strong></div></td><td class="mono">tc_live_b72c...</td><td>5,890</td><td>0.9s</td><td><span class="conf">0.4%</span></td><td>8 min ago</td></tr>
+                            <tr><td><div class="user-cell"><span class="avatar xs" style="background:#38bdf8">DH</span><strong>Dan H.</strong></div></td><td class="mono">tc_live_2e1a...</td><td>4,224</td><td>1.8s</td><td><span class="conf">0.7%</span></td><td>22 min ago</td></tr>
+                            <tr><td><div class="user-cell"><span class="avatar xs" style="background:var(--green)">TP</span><strong>Tomas P.</strong></div></td><td class="mono">tc_live_c8d7...</td><td>2,941</td><td>1.1s</td><td><span class="conf low">2.1%</span></td><td>1 hr ago</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BILLING ============ -->
+        <section class="page" id="page-billing">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">FINANCE</p>
+                    <h1>Billing</h1>
+                    <p class="page-sub">$2,480 MRR · 48 paying users · 9 trials active.</p>
+                </div>
+            </div>
+
+            <div class="stat-grid three">
+                <div class="stat-card"><div class="stat-ic ic-b"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/></svg></div><div class="stat-meta"><span>MRR</span><strong>$2,480</strong></div><div class="stat-trend up">+$290</div></div>
+                <div class="stat-card"><div class="stat-ic ic-a"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div><div class="stat-meta"><span>Paying users</span><strong>25</strong></div><div class="stat-trend up">+2</div></div>
+                <div class="stat-card"><div class="stat-ic ic-d"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div><div class="stat-meta"><span>Trials active</span><strong>9</strong></div><div class="stat-trend ok">Converting</div></div>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-head"><h2>Recent invoices</h2></div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Invoice</th><th>User</th><th>Plan</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td class="mono">INV-2026-042</td><td>Marcus R.</td><td>Operations</td><td>$99.00</td><td>Aug 1, 2026</td><td><span class="status ok">Paid</span></td></tr>
+                                <tr><td class="mono">INV-2026-041</td><td>Aiden K.</td><td>Investigator</td><td>$29.00</td><td>Aug 1, 2026</td><td><span class="status ok">Paid</span></td></tr>
+                                <tr><td class="mono">INV-2026-040</td><td>Sasha L.</td><td>Operations</td><td>$99.00</td><td>Jul 31, 2026</td><td><span class="status ok">Paid</span></td></tr>
+                                <tr><td class="mono">INV-2026-039</td><td>Dan H.</td><td>Investigator</td><td>$29.00</td><td>Jul 30, 2026</td><td><span class="status ok">Paid</span></td></tr>
+                                <tr><td class="mono">INV-2026-038</td><td>Tomas P.</td><td>Investigator</td><td>$29.00</td><td>Jul 28, 2026</td><td><span class="status warn">Pending</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head"><h2>Revenue breakdown</h2></div>
+                    <div class="rev-block">
+                        <div class="rev-card"><strong>Operations × 7</strong><span>$693/mo</span><i class="rev-bar"><b style="width:28%"></b></i></div>
+                        <div class="rev-card"><strong>Investigator × 18</strong><span>$522/mo</span><i class="rev-bar"><b style="width:21%"></b></i></div>
+                        <div class="rev-card"><strong>Scout (Free) × 23</strong><span>$0/mo</span><i class="rev-bar empty"><b style="width:0%"></b></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ AUDIT LOGS ============ -->
+        <section class="page" id="page-logs">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">SECURITY</p>
+                    <h1>Audit Logs</h1>
+                    <p class="page-sub">1,204 events recorded in the last 30 days.</p>
+                </div>
+                <div class="head-actions">
+                    <button class="btn btn-ghost">Filter</button>
+                    <button class="btn btn-ghost">Export</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Event</th><th>User</th><th>IP</th><th>Details</th><th>Timestamp</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="log-ev warn">SUSPENSION</span></td><td>Rita K.</td><td class="mono">203.0.113.45</td><td>Account suspended due to TOS violation</td><td>Today · 14:22 UTC</td></tr>
+                            <tr><td><span class="log-ev ok">LOGIN</span></td><td>Marcus R.</td><td class="mono">198.51.100.22</td><td>Successful login via SSO</td><td>Today · 13:10 UTC</td></tr>
+                            <tr><td><span class="log-ev info">KEY_GEN</span></td><td>Aiden K.</td><td class="mono">192.0.2.141</td><td>New API key generated (key #3)</td><td>Today · 11:45 UTC</td></tr>
+                            <tr><td><span class="log-ev ok">PLAN_UPGRADE</span></td><td>James M.</td><td class="mono">203.0.113.90</td><td>Upgraded from Scout to Investigator</td><td>Today · 09:30 UTC</td></tr>
+                            <tr><td><span class="log-ev info">EXPORT</span></td><td>Sasha L.</td><td class="mono">198.51.100.45</td><td>Exported dossier A-221 as PDF</td><td>Yesterday · 18:12 UTC</td></tr>
+                            <tr><td><span class="log-ev warn">RATE_LIMIT</span></td><td>Rita K.</td><td class="mono">203.0.113.45</td><td>Rate limit triggered (120 req in 60s)</td><td>Yesterday · 15:47 UTC</td></tr>
+                            <tr><td><span class="log-ev ok">LOGIN</span></td><td>Dan H.</td><td class="mono">192.0.2.12</td><td>Successful login via password</td><td>Yesterday · 10:05 UTC</td></tr>
+                            <tr><td><span class="log-ev info">INVITE</span></td><td>Admin</td><td class="mono">198.51.100.1</td><td>Invited nina@startup.dev to workspace</td><td>Jun 5, 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SYSTEM HEALTH ============ -->
+        <section class="page" id="page-health">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">INFRASTRUCTURE</p>
+                    <h1>System Health</h1>
+                    <p class="page-sub">All systems operational. Last incident: 14 days ago.</p>
+                </div>
+                <button class="btn btn-ghost">Run diagnostic</button>
+            </div>
+
+            <div class="health-grid">
+                <div class="health-card ok">
+                    <div class="hc-top"><span class="hc-dot"></span><h3>API Gateway</h3><span class="hc-stat">99.98%</span></div>
+                    <p>Latency: 1.2s avg · P99: 3.8s</p>
+                    <div class="hc-meta"><span>Region: US-East</span><span>Uptime: 31 days</span></div>
+                </div>
+                <div class="health-card ok">
+                    <div class="hc-top"><span class="hc-dot"></span><h3>Breach Indexer</h3><span class="hc-stat">99.95%</span></div>
+                    <p>42/42 sources synced · Last sweep: 4 min ago</p>
+                    <div class="hc-meta"><span>Index size: 12.4B records</span><span>Throughput: 840/s</span></div>
+                </div>
+                <div class="health-card ok">
+                    <div class="hc-top"><span class="hc-dot"></span><h3>Relay Network</h3><span class="hc-stat">100%</span></div>
+                    <p>18 exit nodes online · No degradation</p>
+                    <div class="hc-meta"><span>Avg anonymity: 2.4 hops</span><span>Bandwidth: 4.2 Gbps</span></div>
+                </div>
+                <div class="health-card warn">
+                    <div class="hc-top"><span class="hc-dot w"></span><h3>Notification Service</h3><span class="hc-stat">97.4%</span></div>
+                    <p>Degraded — email queue building up (2 min lag)</p>
+                    <div class="hc-meta"><span>Queue length: 1,428</span><span>Est. recovery: 8 min</span></div>
+                </div>
+                <div class="health-card ok">
+                    <div class="hc-top"><span class="hc-dot"></span><h3>Database Cluster</h3><span class="hc-stat">99.99%</span></div>
+                    <p>Primary: 44ms write · Replica: 12ms read</p>
+                    <div class="hc-meta"><span>Connections: 84/200</span><span>Replication lag: 0s</span></div>
+                </div>
+                <div class="health-card ok">
+                    <div class="hc-top"><span class="hc-dot"></span><h3>Cache Layer</h3><span class="hc-stat">100%</span></div>
+                    <p>Hit ratio: 94.2% · Evictions: 0</p>
+                    <div class="hc-meta"><span>Memory: 2.1/4 GB</span><span>Connected: 4 nodes</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ API KEYS ============ -->
+        <section class="page" id="page-keys">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">SECURITY</p>
+                    <h1>API Keys</h1>
+                    <p class="page-sub" id="keysStats">61 keys across 48 users · 3 revoked · 58 active</p>
+                </div>
+                <div class="head-actions">
+                    <div class="search sm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><input type="text" placeholder="Search keys or users..." id="keySearch"></div>
+                    <button class="icon-btn" style="color:var(--red)" id="revokeSelectedKeys" disabled>Revoke selected</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="bulk-bar" id="keyBulkBar" style="display:none">
+                    <span id="keyBulkCount">0 selected</span>
+                    <button class="icon-btn" style="color:var(--red)" data-bulk="revoke-selected">Revoke selected keys</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th><input type="checkbox" id="selectAllKeys"></th><th>API Key</th><th>User</th><th>Plan</th><th>Created</th><th>Requests</th><th>Last used</th><th>Status</th><th></th></tr></thead>
+                        <tbody id="keyTableBody">
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_4f8a2c9d71b3e5a0</td><td><div class="user-cell"><span class="avatar xs">AK</span><strong>Aiden K.</strong></div></td><td>Investigator</td><td>Mar 11, 2026</td><td>4,211</td><td>2 min ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_9d4f1a7c2e8bf3a1</td><td><div class="user-cell"><span class="avatar xs">AK</span><strong>Aiden K.</strong></div></td><td>Investigator</td><td>Apr 2, 2026</td><td>1,917</td><td>14 min ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_b72c3a8d14e2fa80</td><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td>Operations</td><td>Feb 8, 2026</td><td>3,124</td><td>2 min ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_5a22f9c76d34</td><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td>Operations</td><td>Mar 14, 2026</td><td>2,801</td><td>1 hr ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_c8d7b2a4ff11</td><td><div class="user-cell"><span class="avatar xs" style="background:#8b5cf6">SL</span><strong>Sasha L.</strong></div></td><td>Operations</td><td>Jan 20, 2026</td><td>5,890</td><td>8 min ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_21ef7a3b8c44</td><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td>Operations</td><td>May 30, 2026</td><td>1,604</td><td>3 days ago</td><td><span class="status idle">Idle</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_2e1a79ca3f22</td><td><div class="user-cell"><span class="avatar xs" style="background:#38bdf8">DH</span><strong>Dan H.</strong></div></td><td>Investigator</td><td>Jan 10, 2026</td><td>2,814</td><td>22 min ago</td><td><span class="status ok">Active</span></td><td><button class="icon-btn revoke-btn">Revoke</button></td></tr>
+                            <tr><td><input type="checkbox" class="key-check"></td><td class="mono">tc_live_88d3af2e11bc</td><td><div class="user-cell"><span class="avatar xs" style="background:var(--amber)">MR</span><strong>Marcus R.</strong></div></td><td>Operations</td><td>Apr 18, 2026</td><td>883</td><td>6 days ago</td><td><span class="status off">Revoked</span></td><td><button class="icon-btn revoke-btn" style="display:none">Revoke</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ALERTS ============ -->
+        <section class="page" id="page-alerts">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">MONITORING</p>
+                    <h1>Alert Configuration</h1>
+                    <p class="page-sub">Configure thresholds and notification channels for automated monitoring.</p>
+                </div>
+                <button class="btn btn-primary" id="testAlertBtn">Test alert</button>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-head"><h2>Alert rules</h2><button class="icon-btn" style="font-size:11px">Add rule</button></div>
+                    <table>
+                        <thead><tr><th>Rule</th><th>Condition</th><th>Threshold</th><th>Channel</th><th>Enabled</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>High error rate</strong></td><td>Error rate exceeds threshold</td><td>&gt; 5% in 5 min</td><td><span class="log-ev warn">Email</span></td><td><label class="switch sm"><input type="checkbox" checked><span class="slider"></span></label></td></tr>
+                            <tr><td><strong>Rate limit spikes</strong></td><td>429 responses spike</td><td>&gt; 50 / min</td><td><span class="log-ev warn">Email + Slack</span></td><td><label class="switch sm"><input type="checkbox" checked><span class="slider"></span></label></td></tr>
+                            <tr><td><strong>Payment failure</strong></td><td>Stripe webhook: charge.failed</td><td>Any</td><td><span class="log-ev info">Slack</span></td><td><label class="switch sm"><input type="checkbox" checked><span class="slider"></span></label></td></tr>
+                            <tr><td><strong>New user spike</strong></td><td>Signups exceed threshold</td><td>&gt; 20 / hour</td><td><span class="log-ev info">Slack</span></td><td><label class="switch sm"><input type="checkbox"><span class="slider"></span></label></td></tr>
+                            <tr><td><strong>Relay node down</strong></td><td>Exit node offline &gt; 2 min</td><td>Any</td><td><span class="log-ev warn">Email + SMS</span></td><td><label class="switch sm"><input type="checkbox" checked><span class="slider"></span></label></td></tr>
+                            <tr><td><strong>Database lag</strong></td><td>Replica lag &gt; 10s</td><td>&gt; 10s</td><td><span class="log-ev ok">Dashboard only</span></td><td><label class="switch sm"><input type="checkbox"><span class="slider"></span></label></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="side-col">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Notification channels</h2></div>
+                        <div class="settings-body">
+                            <div class="toggle-row"><div><strong>Email</strong><p>admin@tracecore.io</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                            <div class="toggle-row"><div><strong>Slack</strong><p>#ops-alerts · tracecore.slack.com</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                            <div class="toggle-row"><div><strong>SMS</strong><p>+1 (555) 000-8192</p></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                            <div class="toggle-row"><div><strong>Webhook</strong><p>https://hooks.internal/alerts</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Recent alerts</h2></div>
+                        <div class="alert-feed">
+                            <div class="alert-item warn"><div class="al-left"><span class="al-dot"></span><div><strong>Rate limit spike</strong><p>62 requests blocked in 60s</p></div></div><small>12 min ago</small></div>
+                            <div class="alert-item ok"><div class="al-left"><span class="al-dot"></span><div><strong>Resolved: Node down</strong><p>Relay node 7 restored</p></div></div><small>34 min ago</small></div>
+                            <div class="alert-item warn"><div class="al-left"><span class="al-dot"></span><div><strong>Payment failed</strong><p>INV-2026-038 declined</p></div></div><small>2 hrs ago</small></div>
+                            <div class="alert-item info"><div class="al-left"><span class="al-dot"></span><div><strong>Database lag</strong><p>Replica lag peaked at 14s</p></div></div><small>5 hrs ago</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BACKUP ============ -->
+        <section class="page" id="page-backup">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">DATA MANAGEMENT</p>
+                    <h1>Backup &amp; Export</h1>
+                    <p class="page-sub">Database snapshots, data exports, and restore operations.</p>
+                </div>
+                <button class="btn btn-primary" id="runBackupBtn">Run backup now</button>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-head"><h2>Backup schedule</h2></div>
+                    <table>
+                        <thead><tr><th>Type</th><th>Frequency</th><th>Retention</th><th>Last run</th><th>Size</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Full snapshot</strong></td><td>Daily · 02:00 UTC</td><td>30 days</td><td>Today · 02:03</td><td>4.2 GB</td><td><span class="status ok">Complete</span></td></tr>
+                            <tr><td><strong>Incremental</strong></td><td>Hourly</td><td>7 days</td><td>Today · 21:00</td><td>84 MB</td><td><span class="status ok">Complete</span></td></tr>
+                            <tr><td><strong>User data</strong></td><td>Weekly · Sun 04:00</td><td>90 days</td><td>Jul 26 · 04:14</td><td>1.1 GB</td><td><span class="status ok">Complete</span></td></tr>
+                            <tr><td><strong>Audit logs</strong></td><td>Daily · 03:00 UTC</td><td>365 days</td><td>Today · 03:01</td><td>22 MB</td><td><span class="status ok">Complete</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="side-col">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Data exports</h2></div>
+                        <div class="exp-list">
+                            <button class="exp-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3M7 10l5 5 5-5M12 15V3"/></svg><div><strong>All users</strong><p>CSV format · 48 records</p></div><small>Export</small></button>
+                            <button class="exp-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3M7 10l5 5 5-5M12 15V3"/></svg><div><strong>API usage logs</strong><p>JSON format · 32,605 entries</p></div><small>Export</small></button>
+                            <button class="exp-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3M7 10l5 5 5-5M12 15V3"/></svg><div><strong>Billing history</strong><p>CSV format · 42 invoices</p></div><small>Export</small></button>
+                            <button class="exp-btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3M7 10l5 5 5-5M12 15V3"/></svg><div><strong>Full system backup</strong><p>SQL dump · ~5 GB est.</p></div><small>Export</small></button>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Restore</h2></div>
+                        <div class="settings-body">
+                            <div class="field"><label>Restore from snapshot</label><select class="up-select"><option>Today · 02:03 UTC (4.2 GB)</option><option>Jul 31 · 02:01 UTC (4.1 GB)</option><option>Jul 30 · 02:02 UTC (4.0 GB)</option></select></div>
+                            <button class="btn btn-ghost" style="width:100%;justify-content:center">Restore snapshot</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SETTINGS ============ -->
+        <section class="page" id="page-settings">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">CONFIGURATION</p>
+                    <h1>Admin Settings</h1>
+                    <p class="page-sub">Platform-wide configuration and access controls.</p>
+                </div>
+            </div>
+
+            <div class="settings-grid">
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Access Controls</h2></div>
+                    <div class="settings-body">
+                        <div class="toggle-row"><div><strong>Require 2FA for admins</strong><p>Enforce two-factor for all admin accounts.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                        <div class="toggle-row"><div><strong>IP whitelist</strong><p>Restrict admin panel to specific IP ranges.</p></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                        <div class="toggle-row"><div><strong>Session timeout</strong><p>Auto-logout after inactivity.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                    </div>
+                </div>
+
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Rate Limiting</h2></div>
+                    <div class="settings-body">
+                        <div class="field"><label>Free tier — lookups / month</label><input type="number" value="50"></div>
+                        <div class="field"><label>Investigator — req / minute</label><input type="number" value="120"></div>
+                        <div class="field"><label>Operations — req / minute</label><input type="number" value="300"></div>
+                    </div>
+                </div>
+
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Notifications</h2></div>
+                    <div class="settings-body">
+                        <div class="toggle-row"><div><strong>New user signup</strong><p>Email when a user registers.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                        <div class="toggle-row"><div><strong>Payment failure</strong><p>Alert on failed billing attempts.</p></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+                        <div class="toggle-row"><div><strong>Weekly digest</strong><p>Summary report every Monday.</p></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+    <script src="admin.js"></script>
+
+    <div class="modal-overlay" id="userModalOverlay"></div>
+    <aside class="user-panel" id="userPanel">
+        <div class="up-header">
+            <button class="up-close" id="closeUserPanel">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="up-user-info">
+                <span class="avatar lg" id="upAvatar">AK</span>
+                <div>
+                    <h2 id="upName">Aiden K.</h2>
+                    <p class="mono" id="upEmail">aiden@tracecore.io</p>
+                </div>
+            </div>
+            <span class="up-status" id="upStatus">Active</span>
+        </div>
+
+        <div class="up-body">
+            <div class="up-section">
+                <h3>Account details</h3>
+                <div class="up-meta-grid">
+                    <div class="up-meta"><span>Plan</span><strong id="upPlan">Investigator</strong></div>
+                    <div class="up-meta"><span>Lookups this month</span><strong id="upLookups">847 / Unlimited</strong></div>
+                    <div class="up-meta"><span>Joined</span><strong id="upJoined">Mar 11, 2026</strong></div>
+                    <div class="up-meta"><span>Last active</span><strong id="upLastActive">2 min ago</strong></div>
+                    <div class="up-meta"><span>IP</span><strong class="mono" id="upIP">192.0.2.141</strong></div>
+                    <div class="up-meta"><span>API keys</span><strong id="upKeys">2 active</strong></div>
+                </div>
+            </div>
+
+            <div class="up-section">
+                <h3>API keys</h3>
+                <div class="up-keys" id="upKeyList">
+                    <div class="up-key">
+                        <code>tc_live_4f8a2c9d71b3e5a0</code>
+                        <span class="key-tag ok">Active</span>
+                        <button class="key-revoke" data-action="revoke-key">Revoke</button>
+                    </div>
+                    <div class="up-key">
+                        <code>tc_live_9d4f1a7c2e8bf3a1</code>
+                        <span class="key-tag ok">Active</span>
+                        <button class="key-revoke" data-action="revoke-key">Revoke</button>
+                    </div>
+                </div>
+                <button class="btn btn-ghost sm" id="genKeyBtn2">Generate new key</button>
+            </div>
+
+            <div class="up-section">
+                <h3>Plan</h3>
+                <div class="up-plan-row">
+                    <select class="up-select" id="upPlanSelect">
+                        <option value="scout">Scout (Free) — 50/mo</option>
+                        <option value="investigator" selected>Investigator — $29/mo</option>
+                        <option value="operations">Operations — $99/mo</option>
+                    </select>
+                    <button class="btn btn-ghost sm" id="changePlanBtn">Change Plan</button>
+                </div>
+            </div>
+
+            <div class="up-section">
+                <h3>Recent activity</h3>
+                <div class="up-activity" id="upActivity">
+                    <div class="up-act-item">
+                        <span class="up-act-ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg></span>
+                        <div><strong>Lookup — email</strong><p>a.thorne@altmail.io · 7 matches</p><small>2 min ago</small></div>
+                    </div>
+                    <div class="up-act-item">
+                        <span class="up-act-ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+                        <div><strong>API key generated</strong><p>Key tc_live_9d4f...</p><small>3 days ago</small></div>
+                    </div>
+                    <div class="up-act-item">
+                        <span class="up-act-ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+                        <div><strong>Report exported</strong><p>Dossier A-221 as PDF</p><small>1 week ago</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="up-section danger">
+                <h3>Danger zone</h3>
+                <div class="up-danger-grid">
+                    <button class="up-danger-btn warn" id="btnSuspend">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Suspend user
+                    </button>
+                    <button class="up-danger-btn" id="btnBan">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M18.3 5.7 5.7 18.3"/></svg>
+                        Ban user
+                    </button>
+                    <button class="up-danger-btn" id="btnRevokeAll">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+                        Revoke all keys
+                    </button>
+                    <button class="up-danger-btn" id="btnDelete">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+                        Delete account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+</body>
+
+</html>

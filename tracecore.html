@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tracecore.css">
+    <title>TraceCore — OSINT Intelligence Platform</title>
+    <meta name="theme-color" content="#f6f7f9">
+    <meta property="og:title" content="TraceCore — OSINT Intelligence Platform" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Open-source intelligence that moves faster than your targets." />
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <header class="nav">
+        <a href="#" class="brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 32 32" width="26" height="26" fill="none" aria-hidden="true">
+                    <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3" />
+                    <circle cx="16" cy="16" r="2" fill="currentColor" />
+                    <path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <circle cx="25" cy="7" r="2.4" fill="#0f172a" />
+                </svg>
+            </span>
+            <span class="brand-text">Trace<span>Core</span></span>
+        </a>
+        <nav class="links">
+            <a href="#tools">Tools</a>
+            <a href="#features">Platform</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#support">Support</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#" class="btn btn-ghost">Sign In</a>
+            <a href="#" class="btn btn-primary">Launch Console</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">OPEN-SOURCE INTELLIGENCE PLATFORM</p>
+            <h1>Trace every thread.<br>Find <span class="accent">everything</span>.</h1>
+            <p class="sub">
+                TraceCore is an OSINT suite that surfaces identities, domains, emails, phone numbers and
+                metadata from public sources — so you can investigate faster than your targets move.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary btn-lg">Start Investigating</a>
+                <a href="#" class="btn btn-ghost btn-lg">Explore Tools</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><strong>40+</strong><span>integrations</span></div>
+                <div class="stat"><strong>12B</strong><span>records indexed</span></div>
+                <div class="stat"><strong>&lt;3s</strong><span>avg. lookup</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="logos">
+        <p>Trusted by investigations, teams and independent researchers</p>
+        <div class="logo-row">
+            <span>HELIX&nbsp;FORENSICS</span>
+            <span>DARKWATER&nbsp;INTEL</span>
+            <span>NORTHGATE&nbsp;SEC</span>
+            <span>AVALON&nbsp;LABS</span>
+            <span>IRONCLAD&nbsp;OSINT</span>
+            <span>STILETTO&nbsp;GROUP</span>
+        </div>
+    </section>
+
+    <section class="tools" id="tools">
+        <div class="section-head">
+            <p class="eyebrow">THE TOOLBOX</p>
+            <h2>One console. Every public record.</h2>
+            <p>Stop tab-hopping between a dozen sites. Run your full recon pipeline from a single search bar.</p>
+        </div>
+        <div class="tool-grid">
+            <article class="card">
+                <div class="card-icon">IP</div>
+                <h3>IP &amp; Network</h3>
+                <p>Geolocation, ASN, ports, VPN/proxy flags and passive DNS across the entire address space.</p>
+            </article>
+            <article class="card">
+                <div class="card-icon">DM</div>
+                <h3>Domain OSINT</h3>
+                <p>WHOIS history, subdomains, cert transparency, DNS records and infrastructure clustering.</p>
+            </article>
+            <article class="card">
+                <div class="card-icon">EM</div>
+                <h3>Email Trace</h3>
+                <p>Hibp, domain provenance, aliases and accounts linked to any mailbox.</p>
+            </article>
+            <article class="card">
+                <div class="card-icon">PH</div>
+                <h3>Phone Intelligence</h3>
+                <p>Carrier, country, spam reputation and cross-platform account mapping.</p>
+            </article>
+            <article class="card">
+                <div class="card-icon">US</div>
+                <h3>Username Search</h3>
+                <p>Resolve a single handle across 200+ platforms and surface forgotten profiles.</p>
+            </article>
+            <article class="card">
+                <div class="card-icon">MD</div>
+                <h3>Metadata &amp; Files</h3>
+                <p>EXIF, document authorship and artifact extraction for forensic triage.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-head">
+            <p class="eyebrow">WHY TRACECORE</p>
+            <h2>Built for the speed of an investigation.</h2>
+        </div>
+        <div class="feature-row">
+            <div class="feature">
+                <h3>Correlated results</h3>
+                <p>Every datapoint is joined into a single subject profile with confidence scoring, so leads never die in a tab.</p>
+            </div>
+            <div class="feature">
+                <h3>Exportable dossiers</h3>
+                <p>Generate clean PDF, CSV or JSON reports with full chain-of-custody timestamps for your case file.</p>
+            </div>
+            <div class="feature">
+                <h3>Zero infrastructure</h3>
+                <p>Everything runs through our cloud relays. Your source IP and identity stay hidden by design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="anywhere" id="anywhere">
+        <div class="section-head">
+            <p class="eyebrow">ON EVERY SCREEN</p>
+            <h2>Investigate anything. From anywhere.</h2>
+            <p>Our intelligence platform works across every screen. Run OSINT queries, review full dossiers, and monitor breach exposure — from your phone, desktop, or tablet.</p>
+        </div>
+
+        <div class="device-stage">
+            <div class="dev-wrap dev-monitor">
+                <div class="device monitor">
+                    <div class="screen">
+                        <div class="ui-bar">
+                            <span class="ui-dots"><i></i><i></i><i></i></span>
+                            <span class="ui-addr">tracecore.app/dossier/a-221</span>
+                        </div>
+                        <div class="ui-title">Dossier <em>A-221</em></div>
+                        <div class="ui-cols">
+                            <div class="ui-card">
+                                <div class="ui-line w80"></div>
+                                <div class="ui-line w60"></div>
+                                <div class="ui-line w70"></div>
+                                <div class="ui-line w50"></div>
+                            </div>
+                            <div class="ui-chart">
+                                <span style="height:40%"></span>
+                                <span style="height:64%"></span>
+                                <span style="height:52%"></span>
+                                <span style="height:78%"></span>
+                                <span style="height:66%"></span>
+                                <span style="height:92%"></span>
+                                <span style="height:74%"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+
+            <div class="dev-wrap dev-tablet">
+                <div class="device tablet">
+                    <div class="screen">
+                        <div class="ui-chip"><i></i>3 NEW MATCHES</div>
+                        <div class="ui-line w85"></div>
+                        <div class="ui-line w60"></div>
+                        <div class="ui-card">
+                            <div class="ui-line w90"></div>
+                            <div class="ui-line w70"></div>
+                            <div class="ui-line w55"></div>
+                        </div>
+                        <div class="ui-chip quiet"><i></i>BREACH CHECK · CLEAN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dev-wrap dev-phone">
+                <div class="device phone">
+                    <span class="phone-notch"></span>
+                    <div class="screen">
+                        <div class="ui-search">trace "aiden.thorne"</div>
+                        <div class="ui-line w90"></div>
+                        <div class="ui-line w70"></div>
+                        <div class="ui-line w80"></div>
+                        <div class="ui-chart mini">
+                            <span style="height:50%"></span>
+                            <span style="height:72%"></span>
+                            <span style="height:60%"></span>
+                            <span style="height:88%"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="device-tags">
+            <span>DESKTOP APP</span>
+            <span>TABLET</span>
+            <span>MOBILE</span>
+            <span>OFFLINE MODE</span>
+            <span>DARK MODE</span>
+        </div>
+    </section>
+
+    <section class="global" id="global">
+        <div class="global-copy">
+            <p class="eyebrow">GLOBAL COVERAGE</p>
+            <h2>One grid. Every border.</h2>
+            <p>Our modules have global coverage, cross-referencing identities, breach data, and public records across 190+ countries in real time.</p>
+            <div class="global-stats">
+                <div class="stat"><strong>190+</strong><span>countries</span></div>
+                <div class="stat"><strong>24/7</strong><span>live monitoring</span></div>
+                <div class="stat"><strong>40+</strong><span>source networks</span></div>
+                <div class="stat"><strong>&lt;3s</strong><span>avg. lookup</span></div>
+            </div>
+        </div>
+        <div class="globe">
+            <span class="globe-ring lat"></span>
+            <span class="globe-ring lat"></span>
+            <span class="globe-ring lat"></span>
+            <span class="globe-lon"></span>
+            <span class="globe-lon"></span>
+            <span class="globe-lon"></span>
+            <span class="globe-sweep"></span>
+            <span class="node n1"></span>
+            <span class="node n2"></span>
+            <span class="node n3"></span>
+            <span class="node n4"></span>
+            <span class="node n5"></span>
+            <span class="node n6"></span>
+            <span class="globe-beam"></span>
+            <div class="globe-core"></div>
+        </div>
+    </section>
+
+    <section class="workflow" id="workflow">
+        <div class="section-head">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>From raw signal to finished report.</h2>
+        </div>
+        <ol class="steps">
+            <li><span class="step-num">01</span><h3>Query</h3><p>Enter a username, email, domain or phone.</p></li>
+            <li><span class="step-num">02</span><h3>Correlate</h3><p>TraceCore cross-references 40+ live sources.</p></li>
+            <li><span class="step-num">03</span><h3>Verify</h3><p>Confidence scores and raw links for every hit.</p></li>
+            <li><span class="step-num">04</span><h3>Report</h3><p>Export a chain-of-custody dossier in one click.</p></li>
+        </ol>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-head">
+            <p class="eyebrow">PRICING</p>
+            <h2>Start free. Scale when you need it.</h2>
+        </div>
+        <div class="price-grid">
+            <article class="price-card">
+                <h3>Scout</h3>
+                <p class="price">$0<span>/mo</span></p>
+                <ul>
+                    <li>50 lookups / month</li>
+                    <li>Core tools</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="#" class="btn btn-ghost">Get Started</a>
+            </article>
+            <article class="price-card featured">
+                <span class="tag">MOST POPULAR</span>
+                <h3>Investigator</h3>
+                <p class="price">$29<span>/mo</span></p>
+                <ul>
+                    <li>Unlimited lookups</li>
+                    <li>All tools + API access</li>
+                    <li>Report exports</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+            </article>
+            <article class="price-card">
+                <h3>Operations</h3>
+                <p class="price">$99<span>/mo</span></p>
+                <ul>
+                    <li>Team seats &amp; SSO</li>
+                    <li>Bulk / automated queries</li>
+                    <li>Dedicated onboarding</li>
+                </ul>
+                <a href="#" class="btn btn-ghost">Contact Sales</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Your target is already leaving traces.</h2>
+        <p>Start mapping them today — no credit card required.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary btn-lg">Launch Console</a>
+            <a href="#" class="btn btn-ghost btn-lg">Read the Docs</a>
+        </div>
+    </section>
+
+    <footer id="support">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="brand-text">Trace<span>Core</span></span>
+                <p>Open-source intelligence, engineered for speed.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#tools">Tools</a>
+                <a href="#features">Platform</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Changelog</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="#">Documentation</a>
+                <a href="#">API Reference</a>
+                <a href="#">OSINT Guides</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Legal</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>TraceCore &copy; 2026. For authorized investigations only. Unauthorized use is prohibited.</p>
+        </div>
+    </footer>
+
+    <script src="tracecore.js"></script>
+</body>
+
+</html>

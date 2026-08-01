@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="panel.css">
+    <title>TraceCore — Console</title>
+    <meta name="theme-color" content="#f6f7f9">
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="side-brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 32 32" width="26" height="26" fill="none" aria-hidden="true">
+                    <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3" />
+                    <circle cx="16" cy="16" r="2" fill="currentColor" />
+                    <path d="M16 3v5M16 24v5M3 16h5M24 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    <circle cx="25" cy="7" r="2.4" fill="#38bdf8" />
+                </svg>
+            </span>
+            <span class="brand-text">Trace<span>Core</span></span>
+        </div>
+
+        <nav class="side-nav">
+            <p class="nav-group">OPERATIONS</p>
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-page="investigations">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <span>Investigations</span>
+                <span class="badge">12</span>
+            </a>
+
+            <p class="nav-group">LOOKUP TOOLS</p>
+            <a href="#" class="nav-item" data-page="ip">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 9v6M12 9v6M16 9v3M8 12h4M16 12h2"/></svg>
+                <span>IP Lookup</span>
+            </a>
+            <a href="#" class="nav-item" data-page="domain">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>
+                <span>Domain OSINT</span>
+            </a>
+            <a href="#" class="nav-item" data-page="email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg>
+                <span>Email Trace</span>
+            </a>
+            <a href="#" class="nav-item" data-page="phone">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                <span>Phone Intel</span>
+            </a>
+            <a href="#" class="nav-item" data-page="username">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-3.5 4-6 8-6s7.2 2.5 8 6"/></svg>
+                <span>Username Search</span>
+            </a>
+
+            <p class="nav-group">DATA BREACH</p>
+            <a href="#" class="nav-item" data-page="service" data-service="snusbase"><span>Snusbase</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="leakcheck"><span>LeakCheck v2</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="hackcheck"><span>HackCheck</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="breachbase"><span>BreachBase</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelvault"><span>IntelVault</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="breachvip"><span>BreachVIP</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="leakosint"><span>LeakOSINT</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="cypher"><span>Cypher Dynamics</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="dropbase"><span>Dropbase Search</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="dropbase_osint"><span>Dropbase OSINT</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="dumpcat"><span>Dump.cat</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelx"><span>IntelX</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="melissa"><span>MELISSA</span></a>
+
+            <p class="nav-group">REGIONAL</p>
+            <a href="#" class="nav-item" data-page="service" data-service="rutify_rut"><span>Rutify — RUT</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="rutify_name"><span>Rutify — Name</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="rutify_car"><span>Rutify — Vehicle</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="rutify_sii"><span>Rutify — SII</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="akula"><span>Akula Database</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="leaksight"><span>LeakSight</span></a>
+
+            <p class="nav-group">SOCIAL &amp; OSINT</p>
+            <a href="#" class="nav-item" data-page="service" data-service="room101"><span>Room 101 (Reddit)</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="room101_search"><span>Room 101 — Search</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-h"><span>OathNet — Holehe</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-g"><span>OathNet — GHunt</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-r"><span>OathNet — Roblox</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-x"><span>OathNet — Xbox</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-dr"><span>OathNet — Disc→Roblox</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-s"><span>OathNet — Steam</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="oathnet-mc"><span>OathNet — Minecraft</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="seon"><span>SEON — Email</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="seon_phone"><span>SEON — Phone</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="tiktokrecon"><span>TikTok Recon</span></a>
+
+            <p class="nav-group">SPECIALIZED TOOLS</p>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-leaks"><span>INF0SEC — Leaks</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-discord"><span>INF0SEC — Discord</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-npd"><span>INF0SEC — NPD</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-domain"><span>INF0SEC — Domain</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-username"><span>INF0SEC — Username</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-hlr"><span>INF0SEC — HLR</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="inf0sec-cfx"><span>INF0SEC — CFX</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-host"><span>Shodan — Host</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-search"><span>Shodan — Search</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-dns"><span>Shodan — DNS</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-exploits"><span>Shodan — Exploits</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-honey"><span>Shodan — Honeyscore</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-ports"><span>Shodan — Ports</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-protocols"><span>Shodan — Protocols</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="shodan-api"><span>Shodan — API Info</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-gh"><span>IntelFetch — GitHub</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-disc"><span>IntelFetch — Discord</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-ip"><span>IntelFetch — IP</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-court"><span>IntelFetch — Courts</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-mc"><span>IntelFetch — Minecraft</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-dom"><span>IntelFetch — Domain</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-fb"><span>IntelFetch — Fetchbase</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-ent"><span>IntelFetch — Enterprise</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-npd"><span>IntelFetch — NPD</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="intelfetch-crypto"><span>IntelFetch — Crypto</span></a>
+
+            <p class="nav-group">USER LOOKUPS</p>
+            <a href="#" class="nav-item" data-page="service" data-service="genesis-disc"><span>Genesis — Discord</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="genesis-steam"><span>Genesis — Steam</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="github-ue"><span>GitHub — User->Email</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="github-eu"><span>GitHub — Email->User</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="minecraft"><span>Minecraft OSINT</span></a>
+            <a href="#" class="nav-item" data-page="service" data-service="discord-monitor"><span>Discord Monitor</span></a>
+
+            <p class="nav-group">MONITORING</p>
+            <a href="#" class="nav-item" data-page="breach">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9v5M12 17.5v.01"/></svg>
+                <span>Breach Monitor</span>
+                <span class="badge warn">3</span>
+            </a>
+            <a href="#" class="nav-item" data-page="reports">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+                <span>Reports</span>
+            </a>
+
+            <p class="nav-group">SYSTEM</p>
+            <a href="#" class="nav-item" data-page="api">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+                <span>API &amp; Keys</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="side-foot">
+            <div class="upgrade-card">
+                <p>Free plan</p>
+                <strong>6 / 50 lookups</strong>
+                <div class="usage-track"><span></span></div>
+                <a href="#" class="upgrade-btn">Upgrade to Pro</a>
+            </div>
+            <div class="side-user">
+                <span class="avatar">AK</span>
+                <div>
+                    <strong>aiden.k</strong>
+                    <p>Pro Analyst</p>
+                </div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+        </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main class="main">
+        <header class="topbar">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div class="search">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+                <input type="text" placeholder="Global search — query, case, report..." id="globalSearch">
+                <span class="kbd">/</span>
+            </div>
+            <div class="top-actions">
+                <button class="top-btn" id="newInvestBtn" aria-label="New investigation">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+                <div class="notif-wrap">
+                    <button class="top-btn" id="notifBtn" aria-label="Notifications">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                        <span class="notif-dot"></span>
+                    </button>
+                    <div class="notif-pop" id="notifPop">
+                        <p class="pop-title">Notifications</p>
+                        <div class="notif-item"><span class="nl-dot warn"></span><div><strong>Breach alert</strong><p>3 new credentials linked to "aiden.thorne"</p><small>2 min ago</small></div></div>
+                        <div class="notif-item"><span class="nl-dot info"></span><div><strong>Sources synced</strong><p>42/42 integrations reporting</p><small>1 hr ago</small></div></div>
+                        <div class="notif-item"><span class="nl-dot ok"></span><div><strong>Report ready</strong><p>Dossier A-221 exported as PDF</p><small>3 hrs ago</small></div></div>
+                    </div>
+                </div>
+                <span class="avatar sm">AK</span>
+            </div>
+        </header>
+
+        <!-- ============ DASHBOARD ============ -->
+        <section class="page active" id="page-dashboard">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">CONSOLE</p>
+                    <h1>Good morning, Aiden.</h1>
+                    <p class="page-sub">3 investigations active. Everything is reporting normal.</p>
+                </div>
+                <button class="btn btn-primary" id="newInvTop">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    New Investigation
+                </button>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-ic ic-a">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 12 16 8M21 3v5h-5"/></svg>
+                    </div>
+                    <div class="stat-meta"><span>Lookups today</span><strong id="lookupCount">6</strong></div>
+                    <div class="stat-trend up">+18%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-b">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><path d="M17 17v4M15 19h4"/></svg>
+                    </div>
+                    <div class="stat-meta"><span>Sources online</span><strong id="sourcesOnlineStat">42/42</strong></div>
+                    <div class="stat-trend ok" id="sourcesTrend"><span class="td-dot"></span>All green</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-c">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9v5M12 17.5v.01"/></svg>
+                    </div>
+                    <div class="stat-meta"><span>Breach alerts</span><strong>3</strong></div>
+                    <div class="stat-trend warn">Needs review</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-d">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <div class="stat-meta"><span>Active cases</span><strong>3</strong></div>
+                    <div class="stat-trend ok">Synced</div>
+                </div>
+            </div>
+
+            <div class="quick-lookup">
+                <div class="ql-head">
+                    <div>
+                        <h2>Quick lookup</h2>
+                        <p>Pick a datatype and run a live trace across 42 sources.</p>
+                    </div>
+                </div>
+                <div class="ql-types">
+                    <button class="chip active" data-type="username">Username</button>
+                    <button class="chip" data-type="email">Email</button>
+                    <button class="chip" data-type="phone">Phone</button>
+                    <button class="chip" data-type="domain">Domain</button>
+                    <button class="chip" data-type="ip">IP Address</button>
+                </div>
+                <div class="ql-row">
+                    <input type="text" id="lookupInput" placeholder="Enter username, email, phone, domain or IP...">
+                    <button class="btn btn-primary" id="lookupBtn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+                        Run Trace
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel recent">
+                    <div class="panel-head">
+                        <h2>Recent activity</h2>
+                        <a href="#" class="panel-link" data-goto="investigations">View all</a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Query</th>
+                                    <th>Matches</th>
+                                    <th>Sources</th>
+                                    <th>Confidence</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="activityBody">
+                                <tr>
+                                    <td><span class="tag tag-user">USERNAME</span></td>
+                                    <td class="mono">aiden.thorne</td>
+                                    <td>4</td>
+                                    <td>9</td>
+                                    <td><span class="conf">92%</span></td>
+                                    <td class="muted">2 min</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tag tag-email">EMAIL</span></td>
+                                    <td class="mono">a.thorne@altmail.io</td>
+                                    <td>7</td>
+                                    <td>12</td>
+                                    <td><span class="conf">88%</span></td>
+                                    <td class="muted">14 min</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tag tag-ip">IP</span></td>
+                                    <td class="mono">203.0.113.45</td>
+                                    <td>2</td>
+                                    <td>6</td>
+                                    <td><span class="conf">95%</span></td>
+                                    <td class="muted">32 min</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tag tag-domain">DOMAIN</span></td>
+                                    <td class="mono">altmail.io</td>
+                                    <td>11</td>
+                                    <td>15</td>
+                                    <td><span class="conf">84%</span></td>
+                                    <td class="muted">1 hr</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tag tag-phone">PHONE</span></td>
+                                    <td class="mono">+1 (555) 013-7714</td>
+                                    <td>3</td>
+                                    <td>5</td>
+                                    <td><span class="conf">79%</span></td>
+                                    <td class="muted">2 hr</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="side-col">
+                    <div class="panel live">
+                        <div class="panel-head">
+                            <h2>Live feed</h2>
+                            <span class="live-tag"><i></i>LIVE</span>
+                        </div>
+                        <div class="feed" id="liveFeed">
+                            <div class="feed-item">
+                                <span class="feed-ic fc-warn">
+                                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3z"/></svg>
+                                </span>
+                                <p><strong>Breach watch</strong> — new credential dump indexed.</p>
+                                <small>2 min ago</small>
+                            </div>
+                            <div class="feed-item">
+                                <span class="feed-ic fc-info">
+                                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21"/></svg>
+                                </span>
+                                <p><strong>Domain OSINT</strong> — 4 new subdomains for altmail.io.</p>
+                                <small>18 min ago</small>
+                            </div>
+                            <div class="feed-item">
+                                <span class="feed-ic fc-ok">
+                                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                                </span>
+                                <p><strong>Phone Intel</strong> — carrier updated for +1 (555) 013-7714.</p>
+                                <small>44 min ago</small>
+                            </div>
+                            <div class="feed-item">
+                                <span class="feed-ic fc-info">
+                                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-3.5 4-6 8-6s7.2 2.5 8 6"/></svg>
+                                </span>
+                                <p><strong>Username Search</strong> — new profile found for "aiden.thorne".</p>
+                                <small>1 hr ago</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel sources">
+                        <div class="panel-head">
+                            <h2>Source status</h2>
+                            <a href="#" class="panel-link" data-goto="api">Details</a>
+                        </div>
+                        <div id="sourceStatusPanel">
+                            <div class="src-row"><span>Breach indexes</span><i class="src-bar"><b style="width:96%"></b></i><small>24/25</small></div>
+                            <div class="src-row"><span>Social platforms</span><i class="src-bar"><b style="width:88%"></b></i><small>22/25</small></div>
+                            <div class="src-row"><span>DNS &amp; certs</span><i class="src-bar"><b style="width:100%"></b></i><small>8/8</small></div>
+                            <div class="src-row"><span>Telecom</span><i class="src-bar"><b style="width:80%"></b></i><small>4/5</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ INVESTIGATIONS ============ -->
+        <section class="page" id="page-investigations">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">OPERATIONS</p>
+                    <h1>Investigations</h1>
+                    <p class="page-sub">Track targets, dossiers and coverage across your active cases.</p>
+                </div>
+                <button class="btn btn-primary" data-new-case>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    New Investigation
+                </button>
+            </div>
+
+            <div class="case-grid" id="caseGrid">
+                <div class="case-card">
+                    <div class="case-top">
+                        <span class="case-id">A-221</span>
+                        <span class="badge-st status-active"><span class="sd"></span>ACTIVE</span>
+                    </div>
+                    <h3>Operation Nightshade</h3>
+                    <p class="case-desc">Username &amp; infrastructure mapping of suspected account farm.</p>
+                    <div class="case-meta">
+                        <div><span>Target</span><strong class="mono">aiden.thorne</strong></div>
+                        <div><span>Type</span><strong>Username</strong></div>
+                    </div>
+                    <div class="case-progress"><i><b style="width:68%"></b></i><small>68% coverage</small></div>
+                    <div class="case-foot"><span class="muted">Updated 2 min ago</span><button class="icon-btn" data-goto="username">Open</button></div>
+                </div>
+                <div class="case-card">
+                    <div class="case-top">
+                        <span class="case-id">A-218</span>
+                        <span class="badge-st status-active"><span class="sd"></span>ACTIVE</span>
+                    </div>
+                    <h3>Mailbox Scrub</h3>
+                    <p class="case-desc">Email-to-account correlation and breach exposure review.</p>
+                    <div class="case-meta">
+                        <div><span>Target</span><strong class="mono">a.thorne@altmail.io</strong></div>
+                        <div><span>Type</span><strong>Email</strong></div>
+                    </div>
+                    <div class="case-progress"><i><b style="width:44%"></b></i><small>44% coverage</small></div>
+                    <div class="case-foot"><span class="muted">Updated 14 min ago</span><button class="icon-btn" data-goto="email">Open</button></div>
+                </div>
+                <div class="case-card">
+                    <div class="case-top">
+                        <span class="case-id">A-214</span>
+                        <span class="badge-st status-wait"><span class="sd"></span>WAITING</span>
+                    </div>
+                    <h3>Relay Triangulation</h3>
+                    <p class="case-desc">IP/ASN cluster analysis awaiting new telemetry window.</p>
+                    <div class="case-meta">
+                        <div><span>Target</span><strong class="mono">203.0.113.45</strong></div>
+                        <div><span>Type</span><strong>IP</strong></div>
+                    </div>
+                    <div class="case-progress"><i><b style="width:81%"></b></i><small>81% coverage</small></div>
+                    <div class="case-foot"><span class="muted">Updated 32 min ago</span><button class="icon-btn" data-goto="ip">Open</button></div>
+                </div>
+                <div class="case-card">
+                    <div class="case-top">
+                        <span class="case-id">A-207</span>
+                        <span class="badge-st status-closed"><span class="sd"></span>CLOSED</span>
+                    </div>
+                    <h3>Cert Cartography</h3>
+                    <p class="case-desc">Subdomain and certificate enumeration for altmail.io.</p>
+                    <div class="case-meta">
+                        <div><span>Target</span><strong class="mono">altmail.io</strong></div>
+                        <div><span>Type</span><strong>Domain</strong></div>
+                    </div>
+                    <div class="case-progress"><i><b style="width:100%"></b></i><small>100% coverage</small></div>
+                    <div class="case-foot"><span class="muted">Closed 2 days ago</span><button class="icon-btn" data-goto="reports">View</button></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TOOL PAGES ============ -->
+        <section class="page tool-page" id="page-ip">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">LOOKUP TOOLS</p>
+                    <h1>IP Lookup</h1>
+                    <p class="page-sub">Geolocation, ASN, proxy flags and passive DNS for any address.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form">
+                        <div class="tool-label"><span class="dot-ic">IP</span><h3>Query an address</h3></div>
+                        <div class="tool-row">
+                            <input type="text" class="tool-input" data-query="ip" placeholder="e.g. 203.0.113.45">
+                            <button class="btn btn-primary run-btn" data-tool="ip">Trace</button>
+                        </div>
+                        <div class="example-chips">
+                            <button class="ex" data-tool="ip">203.0.113.45</button>
+                            <button class="ex" data-tool="ip">198.51.100.22</button>
+                            <button class="ex" data-tool="ip">192.0.2.141</button>
+                        </div>
+                    </div>
+                    <div class="tool-tip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Traces resolve through our anonymized relay grid. Your source IP is never exposed.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-ip">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 9v6M12 9v6M16 9v3M8 12h4M16 12h2"/></svg>
+                        <h3>Run a trace to see results</h3>
+                        <p>Geolocation, ASN, open ports and related infrastructure will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page tool-page" id="page-domain">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">LOOKUP TOOLS</p>
+                    <h1>Domain OSINT</h1>
+                    <p class="page-sub">WHOIS history, DNS records, subdomains and cert transparency.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form">
+                        <div class="tool-label"><span class="dot-ic">DM</span><h3>Query a domain</h3></div>
+                        <div class="tool-row">
+                            <input type="text" class="tool-input" data-query="domain" placeholder="e.g. altmail.io">
+                            <button class="btn btn-primary run-btn" data-tool="domain">Trace</button>
+                        </div>
+                        <div class="example-chips">
+                            <button class="ex" data-tool="domain">altmail.io</button>
+                            <button class="ex" data-tool="domain">darksurf.io</button>
+                            <button class="ex" data-tool="domain">netscope.example</button>
+                        </div>
+                    </div>
+                    <div class="tool-tip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Combines WHOIS, passive DNS, crt.sh and live resolvers into one dossier.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-domain">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>
+                        <h3>Run a trace to see results</h3>
+                        <p>Registrar, DNS records, subdomains and certs will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page tool-page" id="page-email">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">LOOKUP TOOLS</p>
+                    <h1>Email Trace</h1>
+                    <p class="page-sub">Domain provenance, breach exposure and linked accounts.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form">
+                        <div class="tool-label"><span class="dot-ic">EM</span><h3>Query an email</h3></div>
+                        <div class="tool-row">
+                            <input type="text" class="tool-input" data-query="email" placeholder="e.g. a.thorne@altmail.io">
+                            <button class="btn btn-primary run-btn" data-tool="email">Trace</button>
+                        </div>
+                        <div class="example-chips">
+                            <button class="ex" data-tool="email">a.thorne@altmail.io</button>
+                            <button class="ex" data-tool="email">m.vega@corpmail.com</button>
+                            <button class="ex" data-tool="email">tracer_7@anonbox.org</button>
+                        </div>
+                    </div>
+                    <div class="tool-tip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Identities are matched across breach indexes and account registries.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-email">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg>
+                        <h3>Run a trace to see results</h3>
+                        <p>Provider, breach status and linked accounts will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page tool-page" id="page-phone">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">LOOKUP TOOLS</p>
+                    <h1>Phone Intel</h1>
+                    <p class="page-sub">Carrier, geography, spam reputation and linked accounts.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form">
+                        <div class="tool-label"><span class="dot-ic">PH</span><h3>Query a number</h3></div>
+                        <div class="tool-row">
+                            <input type="text" class="tool-input" data-query="phone" placeholder="e.g. +1 (555) 013-7714">
+                            <button class="btn btn-primary run-btn" data-tool="phone">Trace</button>
+                        </div>
+                        <div class="example-chips">
+                            <button class="ex" data-tool="phone">+1 (555) 013-7714</button>
+                            <button class="ex" data-tool="phone">+44 20 7946 0958</button>
+                            <button class="ex" data-tool="phone">+49 151 2233 4477</button>
+                        </div>
+                    </div>
+                    <div class="tool-tip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Telecom metadata only — no call or message content is ever accessed.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-phone">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                        <h3>Run a trace to see results</h3>
+                        <p>Carrier, region and account mappings will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page tool-page" id="page-username">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">LOOKUP TOOLS</p>
+                    <h1>Username Search</h1>
+                    <p class="page-sub">Resolve a handle across 200+ platforms and surface profiles.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form">
+                        <div class="tool-label"><span class="dot-ic">US</span><h3>Query a handle</h3></div>
+                        <div class="tool-row">
+                            <input type="text" class="tool-input" data-query="username" placeholder="e.g. aiden.thorne">
+                            <button class="btn btn-primary run-btn" data-tool="username">Trace</button>
+                        </div>
+                        <div class="example-chips">
+                            <button class="ex" data-tool="username">aiden.thorne</button>
+                            <button class="ex" data-tool="username">ghostwire</button>
+                            <button class="ex" data-tool="username">sapphire.lee</button>
+                        </div>
+                    </div>
+                    <div class="tool-tip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        Scans 200+ platforms for matching handles and profile footprints.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-username">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-3.5 4-6 8-6s7.2 2.5 8 6"/></svg>
+                        <h3>Run a trace to see results</h3>
+                        <p>Matched platforms, profile metadata and confidence will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BREACH MONITOR ============ -->
+        <section class="page" id="page-breach">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">MONITORING</p>
+                    <h1>Breach Monitor</h1>
+                    <p class="page-sub">Continuous exposure alerts across breach indexes and paste sites.</p>
+                </div>
+                <button class="btn btn-ghost">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M3 12a9 9 0 0 0 18 0M12 3v3M12 18v3"/></svg>
+                    Add monitor
+                </button>
+            </div>
+            <div class="stat-grid four">
+                <div class="stat-card">
+                    <div class="stat-ic ic-c"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9v5M12 17.5v.01"/></svg></div>
+                    <div class="stat-meta"><span>Active alerts</span><strong>3</strong></div>
+                    <div class="stat-trend warn">Open</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-b"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <div class="stat-meta"><span>Exposures found</span><strong>1,284</strong></div>
+                    <div class="stat-trend up">+9 today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-a"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div>
+                    <div class="stat-meta"><span>Monitored targets</span><strong>47</strong></div>
+                    <div class="stat-trend ok">Watching</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-ic ic-d"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V10M6 20V4M18 20v-6"/></svg></div>
+                    <div class="stat-meta"><span>Last sweep</span><strong>4 min</strong></div>
+                    <div class="stat-trend ok">Scheduled</div>
+                </div>
+            </div>
+
+            <div class="alert-list">
+                <div class="alert-card sev-high">
+                    <div class="sev-bar"></div>
+                    <div class="alert-body">
+                        <div class="alert-top"><span class="sev-tag">HIGH</span><h3>Credential dump</h3><span class="muted">Today · 02:14 UTC</span></div>
+                        <p class="alert-desc">Email <span class="mono">a.thorne@altmail.io</span> appears in a fresh password list shared across 3 paste sites.</p>
+                        <div class="alert-meta">
+                            <span class="mono-chip">altmail breach v12</span>
+                            <span class="mono-chip">hashed + plaintext</span>
+                            <button class="icon-btn" data-goto="email">Open trace</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-card sev-med">
+                    <div class="sev-bar"></div>
+                    <div class="alert-body">
+                        <div class="alert-top"><span class="sev-tag">MEDIUM</span><h3>Phone exposure</h3><span class="muted">Yesterday · 19:40 UTC</span></div>
+                        <p class="alert-desc">Number <span class="mono">+1 (555) 013-7714</span> linked to a marketing-opt database sold on a grey forum.</p>
+                        <div class="alert-meta">
+                            <span class="mono-chip">leadgen export</span>
+                            <button class="icon-btn" data-goto="phone">Open trace</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-card sev-low">
+                    <div class="sev-bar"></div>
+                    <div class="alert-body">
+                        <div class="alert-top"><span class="sev-tag">LOW</span><h3>Alias discovery</h3><span class="muted">3 days ago · 08:05 UTC</span></div>
+                        <p class="alert-desc">New account using handle <span class="mono">ghostwire</span> matches age + geo fingerprint of monitored target.</p>
+                        <div class="alert-meta">
+                            <span class="mono-chip">social scrape</span>
+                            <button class="icon-btn" data-goto="username">Open trace</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ REPORTS ============ -->
+        <section class="page" id="page-reports">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">OPERATIONS</p>
+                    <h1>Reports</h1>
+                    <p class="page-sub">Generated dossiers with full chain-of-custody timestamps.</p>
+                </div>
+                <button class="btn btn-ghost">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    New template
+                </button>
+            </div>
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="report-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+                    <div class="report-meta">
+                        <h3>Dossier A-221 — Nightshade</h3>
+                        <p>Username · 4 platforms · 9 sources</p>
+                        <div class="report-foot"><span class="muted">PDF · 2.4 MB · Today 09:12</span></div>
+                    </div>
+                    <button class="btn btn-ghost sm" data-dl="Dossier A-221">Download</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+                    <div class="report-meta">
+                        <h3>Mailbox Scrub — exposure review</h3>
+                        <p>Email · 7 records · 12 sources</p>
+                        <div class="report-foot"><span class="muted">PDF · 1.1 MB · Yesterday 17:30</span></div>
+                    </div>
+                    <button class="btn btn-ghost sm" data-dl="Mailbox Scrub">Download</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+                    <div class="report-meta">
+                        <h3>Relay Triangulation — interim</h3>
+                        <p>IP · 2 records · 6 sources</p>
+                        <div class="report-foot"><span class="muted">CSV · 412 KB · Yesterday 11:02</span></div>
+                    </div>
+                    <button class="btn btn-ghost sm" data-dl="Relay Triangulation">Download</button>
+                </div>
+                <div class="report-card">
+                    <div class="report-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+                    <div class="report-meta">
+                        <h3>Cert Cartography — final</h3>
+                        <p>Domain · 11 records · 15 sources</p>
+                        <div class="report-foot"><span class="muted">PDF · 3.8 MB · Mon 14:22</span></div>
+                    </div>
+                    <button class="btn btn-ghost sm" data-dl="Cert Cartography">Download</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ API & KEYS ============ -->
+        <section class="page" id="page-api">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">SYSTEM</p>
+                    <h1>API &amp; Keys</h1>
+                    <p class="page-sub">Programmatic access to every TraceCore module.</p>
+                </div>
+                <button class="btn btn-primary" id="genKeyBtn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    Test API
+                </button>
+            </div>
+
+            <div class="content-grid api-grid">
+                <div class="panel key-panel">
+                    <div class="panel-head"><h2>OSINTDog API key</h2><span class="live-tag" id="apiStatusTag"><i></i>ACTIVE</span></div>
+                    <div class="key-display">
+                        <code id="apiKey">fd568d8d-4aa4-4608-aa52-2adf78b1800a</code>
+                        <button class="icon-btn" id="copyKey">Copy</button>
+            </div>
+
+            <div class="content-grid api-grid">
+                <div class="panel key-panel">
+                    <div class="panel-head"><h2>API key</h2><span class="live-tag"><i></i>ACTIVE</span></div>
+                    <div class="key-display">
+                        <code id="apiKey">tc_live_4f8a2c9d71b3e5a0_9d4f1a7c2e8b</code>
+                        <button class="icon-btn" id="copyKey">Copy</button>
+                    </div>
+                    <div class="key-usage">
+                        <div class="key-usage-head"><span>Monthly usage</span><strong>6,128 / 100,000</strong></div>
+                        <div class="usage-track lg"><span style="width:6%"></span></div>
+                        <p class="muted" style="font-size:12.5px;margin-top:8px">Resets in 12 days · Rate limit 120 req/min</p>
+                    </div>
+                    <div class="key-meta">
+                        <div><span>Provider</span><strong>OSINTDog v2</strong></div>
+                        <div><span>Scopes</span><strong>search, breach, social, osint</strong></div>
+                        <div><span>Base URL</span><strong class="mono">osintdog.com</strong></div>
+                    </div>
+                </div>
+
+                <div class="panel endpoints">
+                    <div class="panel-head"><h2>OSINTDog Endpoints</h2><a href="https://osintdog.com/docs" target="_blank" class="panel-link">Docs</a></div>
+                    <div class="endpoint-list">
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/search</code><span class="muted">Universal search</span></div>
+                        <div class="endpoint"><span class="method get">GET</span><code>/api/status</code><span class="muted">Service health</span></div>
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/snusbase/search</code><span class="muted">Snusbase</span></div>
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/leakcheck/v2</code><span class="muted">LeakCheck v2</span></div>
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/hackcheck</code><span class="muted">HackCheck</span></div>
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/breachbase</code><span class="muted">BreachBase</span></div>
+                        <div class="endpoint"><span class="method post">POST</span><code>/api/intelvault</code><span class="muted">IntelVault</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SETTINGS ============ -->
+        <section class="page" id="page-settings">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow">SYSTEM</p>
+                    <h1>Settings</h1>
+                    <p class="page-sub">Manage your profile, privacy and workspace preferences.</p>
+                </div>
+            </div>
+
+            <div class="settings-grid">
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Profile</h2></div>
+                    <div class="settings-body">
+                        <div class="profile-line">
+                            <span class="avatar">AK</span>
+                            <div class="profile-id"><strong>aiden.k</strong><p>aiden@tracecore.io</p></div>
+                            <button class="btn btn-ghost sm">Change</button>
+                        </div>
+                        <div class="field"><label>Display name</label><input type="text" value="Aiden K."></div>
+                        <div class="field"><label>Workspace handle</label><input type="text" value="aiden-k"></div>
+                    </div>
+                </div>
+
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Privacy &amp; relay</h2></div>
+                    <div class="settings-body">
+                        <div class="toggle-row">
+                            <div><strong>Anonymous relay</strong><p>Route all lookups through cloud relays.</p></div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><strong>Result obfuscation</strong><p>Mask partial values in report exports.</p></div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><strong>IP auto-rotation</strong><p>Rotate exit node every 20 lookups.</p></div>
+                            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel settings-card">
+                    <div class="panel-head"><h2>Notifications</h2></div>
+                    <div class="settings-body">
+                        <div class="toggle-row">
+                            <div><strong>Breach alerts</strong><p>Instant push when a monitored target surfaces.</p></div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><strong>Daily digest</strong><p>Summary of lookups and source health at 08:00.</p></div>
+                            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><strong>Report ready</strong><p>Email when an export finishes generating.</p></div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DYNAMIC SERVICE PAGE ============ -->
+        <section class="page" id="page-service">
+            <div class="page-head">
+                <div>
+                    <p class="eyebrow" id="svcCat">DATA BREACH</p>
+                    <h1 id="svcTitle">Service</h1>
+                    <p class="page-sub">Select a service from the sidebar and enter a query.</p>
+                </div>
+            </div>
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <div class="tool-form" id="svcForm"></div>
+                    <div class="tool-tip" id="svcTip">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        All lookups route through the OSINTDog proxy — select a service from the sidebar to configure the endpoint.
+                    </div>
+                </div>
+                <div class="tool-result" id="result-service">
+                    <div class="result-empty">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+                        <h3>Pick a service</h3>
+                        <p>Click any lookup tool in the sidebar to load its endpoint and run a query.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+    <script src="panel.js"></script>
+</body>
+
+</html>
